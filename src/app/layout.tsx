@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PageTransition } from "@/components/PageTransition";
+import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Dean Walker — Full Stack Developer",
-  description:
-    "A personal promo site for Dean Walker, a full stack developer.",
+  description: "A personal promo site for Dean Walker, a full stack developer.",
 };
 
 export default function RootLayout({
@@ -31,13 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-full bg-white text-zinc-950 antialiased dark:bg-zinc-950 dark:text-zinc-50`}
       >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex flex-1 flex-col">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </div>
+        <ViewTransitions>
+          <div className="flex min-h-screen flex-col overflow-hidden">
+            <Navbar />
+            <main className="relative view-transition-page flex flex-1 flex-col">
+              <div className="absolute left-0 top-0 flex h-full w-full flex-1 flex-col overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-zinc-400/60 scrollbar-track-zinc-200/40 scrollbar-hover:scrollbar-thumb-zinc-500/80 dark:scrollbar-thumb-zinc-500/50 dark:scrollbar-track-zinc-800/50 dark:scrollbar-hover:scrollbar-thumb-zinc-400/80">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
+        </ViewTransitions>
       </body>
     </html>
   );

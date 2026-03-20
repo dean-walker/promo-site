@@ -4,6 +4,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 type CarouselImage = {
   src: string;
@@ -20,10 +21,18 @@ export function Carousel({
   aspect?: `${number}/${number}`;
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [index, setIndex] = useState(0);
 
-  const index = emblaApi?.selectedScrollSnap() ?? 0;
   const canPrev = emblaApi?.canScrollPrev() ?? true;
   const canNext = emblaApi?.canScrollNext() ?? true;
+
+  useEffect(() => {
+    // Defer state update to avoid synchronous setState in an effect.
+    const rafId = requestAnimationFrame(() => {
+      setIndex(emblaApi?.selectedScrollSnap() ?? 0);
+    });
+    return () => cancelAnimationFrame(rafId);
+  }, [emblaApi]);
 
   return (
     <div className={cn("relative", className)}>
@@ -85,4 +94,3 @@ export function Carousel({
     </div>
   );
 }
-

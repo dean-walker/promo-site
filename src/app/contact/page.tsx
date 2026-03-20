@@ -5,12 +5,9 @@ export default function ContactPage() {
   return (
     <Container className="py-12 sm:py-16">
       <header className="max-w-2xl">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Contact
-        </h1>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Contact</h1>
         <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-          For now this uses placeholder info. Replace the email + links with your
-          real ones.
+          For now this uses placeholder info. Replace the email + links with your real ones.
         </p>
       </header>
 
@@ -21,12 +18,10 @@ export default function ContactPage() {
           transition={{ duration: 0.35 }}
           className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950"
         >
-          <h2 className="text-base font-semibold tracking-tight">
-            Send a message
-          </h2>
+          <h2 className="text-base font-semibold tracking-tight">Send a message</h2>
           <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-            This is a lightweight, no-backend form (yet). Use the email button or
-            wire this up to a provider later.
+            This is a lightweight, no-backend form (yet). Use the email button or wire this up to a
+            provider later.
           </p>
 
           <form className="mt-6 space-y-4">
@@ -109,8 +104,8 @@ export default function ContactPage() {
 
           <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/30">
             <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-              If you share a quick blurb about scope + timeline, I’ll reply with
-              a next step and a rough estimate.
+              If you share a quick blurb about scope + timeline, I’ll reply with a next step and a
+              rough estimate.
             </p>
           </div>
         </MotionDiv>
@@ -118,4 +113,3 @@ export default function ContactPage() {
     </Container>
   );
 }
-

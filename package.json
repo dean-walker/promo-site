@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md}\" \"*.{json,md,css}\" \"next.config.*\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,md}\" \"*.{json,md,css}\" \"next.config.*\""
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -14,6 +16,7 @@
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.7",
+    "next-view-transitions": "^0.3.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.5.0"
@@ -25,7 +28,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
+    "prettier": "^3.8.1",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4",
+    "prettier": "^3.8.1",
     "typescript": "^5"
   }
 }
