@@ -4,7 +4,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type CarouselImage = {
   src: string;
@@ -25,6 +25,7 @@ export function Carousel({
 
   const canPrev = emblaApi?.canScrollPrev() ?? true;
   const canNext = emblaApi?.canScrollNext() ?? true;
+  const disableControls = useMemo(() => images.length <= 1, [images]);
 
   useEffect(() => {
     // Defer state update to avoid synchronous setState in an effect.
@@ -38,7 +39,7 @@ export function Carousel({
     <div className={cn("relative", className)}>
       <div
         ref={emblaRef}
-        className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/30"
+        className="overflow-hidden"
         style={{ aspectRatio: aspect }}
       >
         <div className="flex h-full touch-pan-y">
@@ -49,7 +50,7 @@ export function Carousel({
                 alt={img.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain p-10"
+                className="object-cover"
                 priority={i === 0}
               />
             </div>
@@ -57,7 +58,7 @@ export function Carousel({
         </div>
       </div>
 
-      <button
+      {!disableControls && <><button
         type="button"
         onClick={() => emblaApi?.scrollPrev()}
         disabled={!canPrev}
@@ -74,7 +75,7 @@ export function Carousel({
         aria-label="Next image"
       >
         <ChevronRight className="size-4" />
-      </button>
+      </button></>}
 
       <div className="mt-3 flex items-center justify-center gap-2">
         {images.map((_, i) => (

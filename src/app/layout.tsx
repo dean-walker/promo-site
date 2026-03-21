@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dean Walker — Full Stack Developer",
+  title: "Dean Walker ~ Full Stack Developer",
   description: "A personal promo site for Dean Walker, a full stack developer.",
 };
 

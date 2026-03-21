@@ -17,19 +17,15 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/60">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 overflow-hidden backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/60">
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <img
-            src="/Profile.jpg"
+            src="/icon.png"
             alt="Dean Walker"
-            width={32}
-            height={32}
-            className="border-solid border-1 border-zinc-100 dark:border-zinc-950 rounded-full"
+            width={48}
+            height={48}
           />
-          <span className="text-sm font-semibold tracking-wide text-zinc-900 dark:text-zinc-50">
-            Dean Walker
-          </span>
         </Link>
 
         <nav className="flex items-center gap-1">

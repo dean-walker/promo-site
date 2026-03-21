@@ -5,39 +5,54 @@ import { Carousel } from "@/components/Carousel";
 import { Link } from "next-view-transitions";
 import { BrandIcon } from "@/components/BrandIcon";
 
-const projects = [
+interface Project {
+  name: string;
+  description: string;
+  tags: string[];
+  href?: string;
+  repo?: string;
+  images: { src: string; alt: string }[];
+}
+
+const projects: Project[] = [
   {
-    name: "USA SLR",
-    description: "An interactive dashboard for USA sea level rise data.",
-    tags: ["Next.js", "Tailwind", "Charts", "Data Visualization"],
-    href: "https://github.com/deanwalker/usa-slr",
-    repo: "https://github.com/deanwalker/usa-slr",
-    images: [{ src: "/usa-slr.png", alt: "USA SLR Dashboard" }],
-  },
-  {
-    name: "Booking Flow",
-    description:
-      "Mobile-first booking checkout with payment step, validation, and resilient edge cases. (placeholder)",
-    tags: ["React", "TypeScript", "Forms", "UX"],
-    href: "https://example.com",
-    repo: "https://github.com/your-handle/booking-flow",
-    images: [
-      { src: "/window.svg", alt: "Mobile booking step" },
-      { src: "/globe.svg", alt: "Availability selection" },
-      { src: "/vercel.svg", alt: "Confirmation view" },
+    name: "Resilience Explorer",
+    description: "",
+    tags: [],
+    href: "https://resilience-explorer.com/",
+    images: [{ src: "/portfolio/rex-landing-1.png", alt: "Resilience Explorer Landing Page" },
+      { src: "/portfolio/rex-landing-2.png", alt: "Resilience Explorer Landing Page" },
     ],
   },
   {
-    name: "Design System Starter",
+    name: "Access NZ",
     description:
-      "A small component library with sensible tokens, variants, and accessibility baked in. (placeholder)",
-    tags: ["Tailwind", "A11y", "Components"],
-    href: "https://example.com",
-    repo: "https://github.com/your-handle/design-system-starter",
+      "",
+    tags: [],
+    href: "https://access.resilience-explorer.com/",
     images: [
-      { src: "/file.svg", alt: "Component docs" },
-      { src: "/next.svg", alt: "Tokens and themes" },
-      { src: "/window.svg", alt: "Variants and states" },
+      { src: "/portfolio/access.png", alt: "Access NZ Landing Page" },
+    ],
+  },
+  {
+    name: "Ruru",
+    description:
+      "",
+    tags: [],
+    repo: "https://github.com/dean-walker/ruru",
+    images: [
+      { src: "/portfolio/ruru-1.png", alt: "Ruru Landing Page" },
+      { src: "/portfolio/ruru-2.png", alt: "Ruru Landing Page" },
+    ],
+  },
+  {
+    name: "Resilience Cards",
+    description:
+      "",
+    tags: [],
+    repo: "https://github.com/dean-walker/ruru",
+    images: [
+      { src: "/portfolio/card-game.png", alt: "Resilience Cards Game" },
     ],
   },
 ] as const;
@@ -48,21 +63,20 @@ export default function PortfolioPage() {
       <header className="max-w-2xl">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Portfolio</h1>
         <p className="mt-3 text-base leading-7 text-zinc-600 dark:text-zinc-300">
-          A few samples with placeholder links. Swap in real URLs, screenshots, and writeups when
-          you’re ready.
+          A few of my past publicly available projects. The majority are covered by NDA, but I'm happy to share more details if you're interested.
         </p>
       </header>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="mt-10 flex flex-col gap-4">
         {projects.map((p, idx) => (
           <MotionDiv
             key={p.name}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: idx * 0.05 }}
-            className="group rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+            className="overflow-hidden flex gap-4 group rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
           >
-            <Carousel images={[...p.images]} className="mb-5" />
+            <Carousel images={[...p.images]} className="flex-1 max-w-1/3 border-r border-zinc-200 dark:border-zinc-800" aspect="14/9" />
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-lg font-semibold tracking-tight">{p.name}</h2>
@@ -71,7 +85,7 @@ export default function PortfolioPage() {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <a
+                {p.repo && <a
                   className="inline-flex size-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
                   href={p.repo}
                   target="_blank"
@@ -79,8 +93,8 @@ export default function PortfolioPage() {
                   aria-label={`${p.name} repository`}
                 >
                   <BrandIcon name="github" />
-                </a>
-                <a
+                </a>}
+                {p.href && <a
                   className="inline-flex size-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
                   href={p.href}
                   target="_blank"
@@ -88,7 +102,7 @@ export default function PortfolioPage() {
                   aria-label={`${p.name} website`}
                 >
                   <ExternalLink className="size-4" />
-                </a>
+                </a>}
               </div>
             </div>
 

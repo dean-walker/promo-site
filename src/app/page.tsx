@@ -1,7 +1,8 @@
-import { ArrowRight, Code2, Pin, Sparkles, Wrench } from "lucide-react";
+import { ArrowRight, Code2, Pin, Wrench } from "lucide-react";
 import { Container } from "@/components/Container";
 import { MotionDiv } from "@/components/Motion";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -50,7 +51,7 @@ export default function Home() {
         </MotionDiv>
       </div>
 
-      <Container className="py-14 sm:py-20">
+      <Container className="py-14 sm:py-24">
         <section className="grid items-center gap-10 lg:grid-cols-2">
           <div className="space-y-6">
             <p className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300">
@@ -80,24 +81,45 @@ export default function Home() {
                 Contact
               </Link>
             </div>
-
-            <dl className="grid grid-cols-2 gap-4 pt-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                <dt className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Focus</dt>
-                <dd className="mt-1 text-sm font-semibold">Frontend + UX</dd>
-              </div>
-              <div className="rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                <dt className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Stack</dt>
-                <dd className="mt-1 text-sm font-semibold">Next.js / TS</dd>
-              </div>
-              <div className="rounded-2xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-                <dt className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Location</dt>
-                <dd className="mt-1 text-sm font-semibold">Remote</dd>
-              </div>
-            </dl>
           </div>
+          <div className="flex h-full w-full py-10">
+            <MotionDiv
+             initial={{ opacity: 0, filter: "blur(2px)", scale: 0.97 }}
+             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+             transition={{ duration: 0.4, ease: "easeOut" }}
+             className="relative mx-auto size-40 sm:size-64">
+              <Image
+                src="/Profile.jpg"
+                alt="Dean Walker profile photo"
+                fill
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-cover rounded-full opacity-20"
+                style={{ animation: "blurPulse 8s ease-in-out infinite" }}
+                priority
+              />
+              <Image
+                src="/Profile.jpg"
+                alt="Dean Walker profile photo"
+                fill
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-cover rounded-full opacity-80"
+                priority
+              />
+              <Image
+                src="/Profile.png"
+                alt="Dean Walker profile photo"
+                fill
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-cover rounded-full"
+                priority
+              />
+            </MotionDiv>
+          </div>
+        </section>
+      </Container>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+<Container>
+<div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
               <div className="flex items-center gap-3">
                 <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300">
@@ -143,9 +165,8 @@ export default function Home() {
                 Want to see more? Head to the portfolio page for a few sample case studies.
               </p>
             </div>
-          </div>
-        </section>
-      </Container>
+</div>
+</Container>
     </div>
   );
 }

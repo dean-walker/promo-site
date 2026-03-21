@@ -5,6 +5,16 @@
   preferredstrategy: pseudoelements;
 }
 
+@keyframes blurPulse {
+  0%,
+  100% {
+    filter: blur(24px);
+  }
+  50% {
+    filter: blur(16px);
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -58,7 +68,7 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(page) {
-    animation: page-exit 200ms ease-in both;
+    animation: page-exit 100ms ease-in both;
   }
 
   ::view-transition-new(page) {
@@ -77,5 +87,4 @@ body {
 /* Keep focus rings consistent */
 :focus-visible {
   outline: 2px solid color-mix(in oklab, var(--foreground) 30%, transparent);
-  outline-offset: 3px;
 }
