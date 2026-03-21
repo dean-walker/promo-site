@@ -89,7 +89,7 @@ export default function Home() {
              transition={{ duration: 0.4, ease: "easeOut" }}
              className="relative mx-auto size-40 sm:size-64">
               <Image
-                src="/Profile.jpg"
+                src="./Profile.jpg"
                 alt="Dean Walker profile photo"
                 fill
                 sizes="(max-width: 640px) 160px, 192px"
@@ -98,7 +98,7 @@ export default function Home() {
                 priority
               />
               <Image
-                src="/Profile.jpg"
+                src="./Profile.jpg"
                 alt="Dean Walker profile photo"
                 fill
                 sizes="(max-width: 640px) 160px, 192px"
@@ -106,7 +106,7 @@ export default function Home() {
                 priority
               />
               <Image
-                src="/Profile.png"
+                src="./Profile.png"
                 alt="Dean Walker profile photo"
                 fill
                 sizes="(max-width: 640px) 160px, 192px"
