@@ -20,8 +20,8 @@ const projects: Project[] = [
     description: "",
     tags: [],
     href: "https://resilience-explorer.com/",
-    images: [{ src: "/portfolio/rex-landing-1.png", alt: "Resilience Explorer Landing Page" },
-      { src: "/portfolio/rex-landing-2.png", alt: "Resilience Explorer Landing Page" },
+    images: [{ src: "./portfolio/rex-landing-1.png", alt: "Resilience Explorer Landing Page" },
+      { src: "./portfolio/rex-landing-2.png", alt: "Resilience Explorer Landing Page" },
     ],
   },
   {
@@ -31,7 +31,7 @@ const projects: Project[] = [
     tags: [],
     href: "https://access.resilience-explorer.com/",
     images: [
-      { src: "/portfolio/access.png", alt: "Access NZ Landing Page" },
+      { src: "./portfolio/access.png", alt: "Access NZ Landing Page" },
     ],
   },
   {
@@ -41,8 +41,8 @@ const projects: Project[] = [
     tags: [],
     repo: "https://github.com/dean-walker/ruru",
     images: [
-      { src: "/portfolio/ruru-1.png", alt: "Ruru Landing Page" },
-      { src: "/portfolio/ruru-2.png", alt: "Ruru Landing Page" },
+      { src: "./portfolio/ruru-1.png", alt: "Ruru Landing Page" },
+      { src: "./portfolio/ruru-2.png", alt: "Ruru Landing Page" },
     ],
   },
   {
@@ -50,9 +50,9 @@ const projects: Project[] = [
     description:
       "",
     tags: [],
-    repo: "https://github.com/dean-walker/ruru",
+    repo: "https://github.com/dean-walker/climatecards",
     images: [
-      { src: "/portfolio/card-game.png", alt: "Resilience Cards Game" },
+      { src: "./portfolio/card-game.png", alt: "Resilience Cards Game" },
     ],
   },
 ] as const;

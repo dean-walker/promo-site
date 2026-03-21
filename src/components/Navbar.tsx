@@ -21,7 +21,7 @@ export function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <img
-            src="/icon.png"
+            src="./icon.png"
             alt="Dean Walker"
             width={48}
             height={48}
