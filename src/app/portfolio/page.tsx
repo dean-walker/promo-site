@@ -1,6 +1,5 @@
 import { Container } from "@/components/Container";
 import { PortfolioProjectCards } from "@/components/PortfolioProjectCards";
-import { Link } from "next-view-transitions";
 import { portfolioProjects } from "@/data/portfolio";
 
 export default function PortfolioPage() {
@@ -22,12 +21,12 @@ export default function PortfolioPage() {
           Add screenshots, short case studies, and real metrics (perf, conversion, time-to-ship).
           Keep it scannable.
         </p>
-        <Link
-          href="/contact"
+        <a
+          href="mailto:dean.s.walker@outlook.com"
           className="mt-4 inline-flex h-11 items-center justify-center rounded-full bg-zinc-900 px-5 text-sm font-semibold text-white transition hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          Let’s talk
-        </Link>
+          Get in touch
+        </a>
       </div>
     </Container>
   );

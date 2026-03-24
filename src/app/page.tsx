@@ -1,9 +1,28 @@
-import { ArrowRight, Code2, Pin, Wrench } from "lucide-react";
+import { ArrowRight, ChevronRight, Mail, Pin } from "lucide-react";
+import { BrandIcon } from "@/components/BrandIcon";
 import { withBasePath } from "@/lib/basePath";
 import { Container } from "@/components/Container";
 import { MotionDiv } from "@/components/Motion";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    handle: "@dean-walker",
+    href: "https://github.com/dean-walker",
+  },
+  {
+    name: "LinkedIn",
+    handle: "Dean Walker",
+    href: "https://www.linkedin.com/in/dean-s-walker/",
+  },
+  {
+    name: "Gmail",
+    handle: "dean.s.walker@outlook.com",
+    href: "mailto:dean.s.walker@outlook.com",
+  },
+] as const;
 
 export default function Home() {
   return (
@@ -75,12 +94,6 @@ export default function Home() {
               >
                 View portfolio <ArrowRight className="ml-2 size-4" />
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex h-11 items-center justify-center rounded-full border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:bg-zinc-900"
-              >
-                Contact
-              </Link>
             </div>
           </div>
           <div className="flex h-full w-full py-10">
@@ -121,52 +134,45 @@ export default function Home() {
       </Container>
 
       <Container>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300">
-                <Code2 className="size-5" />
-              </span>
-              <h2 className="text-sm font-semibold">Product-minded builds</h2>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-              Clean architecture, fast pages, and details that make interfaces feel premium.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-emerald-600/10 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-300">
-                <Wrench className="size-5" />
-              </span>
-              <h2 className="text-sm font-semibold">Modern toolchain</h2>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-              Next.js, Tailwind, Motion, and a few small utilities to keep the UI crisp.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:col-span-2 dark:border-zinc-800 dark:bg-zinc-950">
-            <h2 className="text-sm font-semibold">Tech highlights</h2>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {[
-                "Next.js App Router",
-                "React 19",
-                "Tailwind CSS v4",
-                "TypeScript",
-                "Framer Motion",
-                "ESLint",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-              Want to see more? Head to the portfolio page for a few sample case studies.
-            </p>
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {socialLinks.map((social, idx) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-3xl focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            >
+              <MotionDiv
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.05 + idx * 0.05 }}
+                className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-200">
+                    {social.name === "GitHub" ? (
+                      <BrandIcon name="github" className="size-5" />
+                    ) : social.name === "LinkedIn" ? (
+                      <BrandIcon name="linkedin" className="size-5" />
+                    ) : (
+                      <Mail className="size-5" />
+                    )}
+                  </span>
+                  <div>
+                    <h2 className="text-base font-semibold tracking-tight">{social.name}</h2>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">{social.handle}</p>
+                  </div>
+
+                  <div className="flex grow justify-end">
+                    <span className="inline-flex size-9 items-center justify-center rounded-full text-zinc-700 transition group-hover:bg-zinc-100 dark:text-zinc-200 dark:group-hover:bg-zinc-900">
+                      <ChevronRight className="size-5" />
+                    </span>
+                  </div>
+                </div>
+              </MotionDiv>
+            </a>
+          ))}
         </div>
       </Container>
     </div>

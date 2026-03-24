@@ -17,19 +17,21 @@ export function Footer() {
           >
             Portfolio
           </Link>
-          <Link
-            className="text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400"
-            href="/contact"
-          >
-            Contact
-          </Link>
           <a
             className="text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400"
-            href="https://github.com/your-handle"
+            href="https://github.com/dean-walker"
             target="_blank"
             rel="noreferrer"
           >
             GitHub
+          </a>
+          <a
+            className="text-zinc-400 hover:text-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-400"
+            href="https://www.linkedin.com/in/dean-s-walker/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
           </a>
         </div>
       </Container>

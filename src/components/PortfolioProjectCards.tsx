@@ -61,7 +61,7 @@ export function PortfolioProjectCards({ projects }: Props) {
 
   return (
     <>
-      <div className="mt-10 flex flex-col gap-4">
+      <div className="mt-10 flex flex-col gap-12">
         {projects.map((p, idx) => (
           <MotionDiv
             key={p.name}
@@ -69,70 +69,66 @@ export function PortfolioProjectCards({ projects }: Props) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: idx * 0.05 }}
             tabIndex={0}
-            aria-label={`Open ${p.name} in fullscreen`}
-            aria-haspopup="dialog"
-            aria-expanded={openIndex === idx}
-            onClick={() => setOpenIndex(idx)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setOpenIndex(idx);
-              }
-            }}
             className={cn(
-              "group flex cursor-pointer flex-col gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition",
-              "hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-500",
-              "sm:flex-row sm:gap-0 dark:border-zinc-800 dark:bg-zinc-950",
+              "group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition",
+              "focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-500",
+              "dark:border-zinc-800 dark:bg-zinc-950",
             )}
           >
-            <img src={withBasePath(p.thumbnail)} alt={p.name} width={320} height={180} />
-            <div className="flex min-w-0 flex-1 flex-col justify-between gap-4 p-4 sm:py-4">
+            <div className="flex min-w-0 flex-1 flex-col justify-between gap-4 p-4">
               <div className="flex items-start justify-between gap-4">
-                <div>
+                <div className="flex flex-col gap-2 self-stretch">
                   <h2 className="text-lg font-semibold tracking-tight">{p.name}</h2>
                   <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
                     {p.description}
                   </p>
-                </div>
-                <div
-                  className="flex shrink-0 items-center gap-2"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {p.repo && (
-                    <a
-                      className="inline-flex size-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
-                      href={p.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${p.name} repository`}
-                    >
-                      <BrandIcon name="github" />
-                    </a>
-                  )}
-                  {p.href && (
-                    <a
-                      className="inline-flex size-9 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
-                      href={p.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${p.name} website`}
-                    >
-                      <ExternalLink className="size-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300"
+                  <div
+                    className="flex shrink-0 grow items-end gap-2"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    {t}
-                  </span>
-                ))}
+                    {p.repo && (
+                      <a
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                        href={p.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${p.name} repository`}
+                      >
+                        <BrandIcon name="github" className="size-5" /> Source
+                      </a>
+                    )}
+                    {p.href && (
+                      <a
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-200 px-4 py-2 text-zinc-700 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                        href={p.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${p.name} website`}
+                      >
+                        <ExternalLink className="size-5" /> Website
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-lg border border-zinc-200 p-1 sm:w-[360px] sm:self-stretch sm:rounded-xl dark:border-zinc-800">
+                  <img
+                    src={withBasePath(p.thumbnail)}
+                    alt={p.name}
+                    className="h-auto rounded-md object-cover sm:min-w-[360px]"
+                  />
+                </div>
               </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 border-t border-zinc-200 p-4 pt-4 dark:border-zinc-800">
+              {p.tags.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
           </MotionDiv>
         ))}

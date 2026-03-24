@@ -11,8 +11,23 @@ export type PortfolioProject = {
 export const portfolioProjects: PortfolioProject[] = [
   {
     name: "Resilience Explorer",
-    description: "",
-    tags: [],
+    description:
+      "The Resilience Explorer is a complex, geospatial web application that allows clients to explore the exposure of their assets to various natural hazards.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Redux",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Mapbox",
+      "PostgresQL",
+      "Express",
+      "Axios",
+      "Node",
+      "Docker",
+      "AWS: Cognito, S3, Lambda, CloudFront",
+      "CI/CD",
+    ],
     href: "https://resilience-explorer.com/",
     thumbnail: "/portfolio/thumbnails/Rex.jpg",
     images: [
@@ -22,8 +37,22 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     name: "Access NZ",
-    description: "",
-    tags: [],
+    description:
+      "A sister platform to Resilience Explorer, that displays access to amenities and services across New Zealand.",
+    tags: [
+      "Nuxt",
+      "Vue",
+      "Pinia",
+      "TypeScript",
+      "Mapbox",
+      "PostgresQL",
+      "Express",
+      "Axios",
+      "Node",
+      "Docker",
+      "AWS: Cognito, S3, Lambda, CloudFront",
+      "CI/CD",
+    ],
     href: "https://access.resilience-explorer.com/",
     thumbnail: "/portfolio/thumbnails/Access.jpg",
     images: [{ src: "/portfolio/access.png", alt: "Access NZ Landing Page" }],
@@ -31,7 +60,18 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     name: "Ruru",
     description: "",
-    tags: [],
+    tags: [
+      "Vue",
+      "Vite",
+      "Pinia",
+      "Express",
+      "Node",
+      "Slack API",
+      "Github API",
+      "Basecamp API",
+      "Hubspot API",
+      "Runn API",
+    ],
     repo: "https://github.com/dean-walker/ruru",
     thumbnail: "/portfolio/thumbnails/Ruru.jpg",
     images: [
@@ -42,7 +82,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     name: "Resilience Cards",
     description: "",
-    tags: [],
+    tags: ["React", "TypeScript"],
     thumbnail: "/portfolio/thumbnails/Game.jpg",
     repo: "https://github.com/dean-walker/climatecards",
     images: [{ src: "/portfolio/card-game.png", alt: "Resilience Cards Game" }],

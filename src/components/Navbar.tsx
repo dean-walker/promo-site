@@ -12,7 +12,6 @@ import { BrandIcon } from "@/components/BrandIcon";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Navbar() {
