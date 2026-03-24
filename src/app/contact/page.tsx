@@ -33,7 +33,7 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 placeholder="Jane Developer"
-                className="mt-2 h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm outline-none transition focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
+                className="mt-2 h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm transition outline-none focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
               />
             </div>
             <div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 name="email"
                 type="email"
                 placeholder="jane@example.com"
-                className="mt-2 h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm outline-none transition focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
+                className="mt-2 h-11 w-full rounded-2xl border border-zinc-200 bg-white px-4 text-sm transition outline-none focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
               />
             </div>
             <div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
                 name="message"
                 placeholder="What are you building?"
                 rows={5}
-                className="mt-2 w-full resize-none rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
+                className="mt-2 w-full resize-none rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm transition outline-none focus:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:focus:border-zinc-600"
               />
             </div>
 

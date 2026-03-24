@@ -1,8 +1,10 @@
 "use client";
 
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Mail } from "lucide-react";
+import { withBasePath } from "@/lib/basePath";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/Container";
 import { BrandIcon } from "@/components/BrandIcon";
@@ -17,14 +19,15 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 overflow-hidden backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/60">
+    <header className="sticky top-0 z-50 overflow-hidden border-b border-zinc-200/60 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/60">
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <img
-            src="./icon.png"
+          <Image
+            src={withBasePath("/icon.png")}
             alt="Dean Walker"
             width={48}
             height={48}
+            priority
           />
         </Link>
 

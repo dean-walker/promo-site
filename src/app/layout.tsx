@@ -33,8 +33,8 @@ export default function RootLayout({
         <ViewTransitions>
           <div className="flex min-h-screen flex-col overflow-hidden">
             <Navbar />
-            <main className="relative view-transition-page flex flex-1 flex-col">
-              <div className="absolute left-0 top-0 flex h-full w-full flex-1 flex-col overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-zinc-400/60 scrollbar-track-zinc-200/40 scrollbar-hover:scrollbar-thumb-zinc-500/80 dark:scrollbar-thumb-zinc-500/50 dark:scrollbar-track-zinc-800/50 dark:scrollbar-hover:scrollbar-thumb-zinc-400/80">
+            <main className="view-transition-page relative flex flex-1 flex-col">
+              <div className="scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-zinc-400/60 scrollbar-track-zinc-200/40 scrollbar-hover:scrollbar-thumb-zinc-500/80 dark:scrollbar-thumb-zinc-500/50 dark:scrollbar-track-zinc-800/50 dark:scrollbar-hover:scrollbar-thumb-zinc-400/80 absolute top-0 left-0 flex h-full w-full flex-1 flex-col overflow-y-auto">
                 {children}
               </div>
             </main>
