@@ -65,30 +65,35 @@ export function PortfolioProjectCards({ projects }: Props) {
         {projects.map((p, idx) => (
           <MotionDiv
             key={p.name}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: idx * 0.05 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeInOut" }}
             tabIndex={0}
             className={cn(
-              "group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition",
+              "group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm",
               "focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-500",
               "dark:border-zinc-800 dark:bg-zinc-950",
             )}
           >
             <div className="flex min-w-0 flex-1 flex-col justify-between gap-4 p-4">
               <div className="flex items-start justify-between gap-4">
-                <div className="flex flex-col gap-2 self-stretch">
+                <div className="flex shrink flex-col gap-2 self-stretch">
                   <h2 className="text-lg font-semibold tracking-tight">{p.name}</h2>
-                  <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-                    {p.description}
+                  <p className="my-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                    {p.description.split("\n").map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
                   </p>
                   <div
-                    className="flex shrink-0 grow items-end gap-2"
+                    className="mt-4 flex shrink-0 grow items-end gap-2"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {p.repo && (
                       <a
-                        className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-200 px-4 py-2 text-zinc-700 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-900"
                         href={p.repo}
                         target="_blank"
                         rel="noreferrer"
@@ -110,7 +115,7 @@ export function PortfolioProjectCards({ projects }: Props) {
                     )}
                   </div>
                 </div>
-                <div className="relative overflow-hidden rounded-lg border border-zinc-200 p-1 sm:w-[360px] sm:self-stretch sm:rounded-xl dark:border-zinc-800">
+                <div className="relative shrink-0 overflow-hidden rounded-lg border border-zinc-200 p-1 sm:w-[360px] sm:rounded-xl dark:border-zinc-800">
                   <img
                     src={withBasePath(p.thumbnail)}
                     alt={p.name}

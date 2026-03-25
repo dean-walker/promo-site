@@ -12,7 +12,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     name: "Resilience Explorer",
     description:
-      "The Resilience Explorer is a complex, geospatial web application that allows clients to explore the exposure of their assets to various natural hazards.",
+      "The Resilience Explorer is a complex, geospatial web application that allows clients to explore the exposure of their assets to various natural hazards. Built over the course of three years, it grew into our flagship product, designed to be modular, scalable, and easily maintainable.\n\nI was responsible for the full stack development of the project for years, alongside a team of 3-4 other developers. This included everything from big data processing and storage, to JWT protected API endpoints, to front end UI/UX.\n\nVery proud of the work I did on this project, it felt like a natural evolution of my earlier projects for Urban Intelligence, as it combined their functionality into a single, cohesive product.",
     tags: [
       "React",
       "TypeScript",
