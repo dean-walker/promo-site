@@ -5,7 +5,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-200/60 bg-white dark:border-zinc-800/60 dark:bg-zinc-950">
+    <footer className="z-50 border-t border-zinc-200/60 bg-white dark:border-zinc-800/60 dark:bg-zinc-950">
       <Container className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-zinc-400 dark:text-zinc-600">
           © {year} Dean Walker. Built with Next.js, Tailwind, and Framer Motion.

@@ -62,12 +62,13 @@ export function PortfolioProjectCards({ projects }: Props) {
   return (
     <>
       <div className="mt-10 flex flex-col gap-12">
-        {projects.map((p, idx) => (
+        {projects.map((p) => (
           <MotionDiv
             key={p.name}
             initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeInOut" }}
+            animate={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: "easeInOut" }}
+            whileInView={{ opacity: 1, scale: 1 }}
             tabIndex={0}
             className={cn(
               "group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm",
@@ -76,7 +77,7 @@ export function PortfolioProjectCards({ projects }: Props) {
             )}
           >
             <div className="flex min-w-0 flex-1 flex-col justify-between gap-4 p-4">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col-reverse items-start justify-between gap-4 md:flex-row">
                 <div className="flex shrink flex-col gap-2 self-stretch">
                   <h2 className="text-lg font-semibold tracking-tight">{p.name}</h2>
                   <p className="my-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
