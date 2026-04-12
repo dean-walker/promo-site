@@ -65,6 +65,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Vue",
       "Vite",
       "Pinia",
+      "MongoDB",
       "Express",
       "Node",
       "Slack API",
